@@ -1,0 +1,11 @@
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\bin\Debug\Proyecto.exe.config
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\bin\Debug\Proyecto.exe
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\bin\Debug\Proyecto.pdb
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.Form1.resources
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.Login.resources
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.Properties.Resources.resources
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.GenerateResource.cache
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.exe
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\andre\Desktop\verano\Proyecto\Proyecto\obj\Debug\Proyecto.AgregarLibro.resources
