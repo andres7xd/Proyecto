@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Proyecto
 {
-    public partial class Form1 : Form
+    public partial class Principal : Form
     {
-        List<Libro> ListaLibros = new List<Libro>();
-        public static List<String> LIstaHistorial = new List<String>();
+        public static List<Libro> ListaLibros = new List<Libro>();
+        public static List<Historial> ListaHistorial = new List<Historial>();
 
-        public Form1()
+        public Principal()
         {
             
             InitializeComponent();
@@ -46,7 +46,9 @@ namespace Proyecto
                 flowLayoutPanel1.Controls.Add(ListaLibros[i]);
             }
 
-            LIstaHistorial.Add("agrego el libro: " + AgregarLibro.Nombre);
+            Historial historial = new Historial(Login.Usuario, "Agrega Libro", "AgregarLibro", "");
+            
+            ListaHistorial.Add(historial);
 
 
           
@@ -79,13 +81,29 @@ namespace Proyecto
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            for(int i=0;i<LIstaHistorial.Count;i++)
-            {
+            HistorialForm historial = new HistorialForm();
+            historial.ShowDialog();
 
-                Console.WriteLine(LIstaHistorial[i]);
+            for (int i=0;i<ListaHistorial.Count;i++)
+            {
+                
+
+                Console.WriteLine(ListaHistorial[i]);
 
             }
            
+        }
+        public List<Libro> LibrosList
+        {
+            get
+            {
+                return ListaLibros;
+            }
+            set
+            {
+
+                ListaLibros = value;
+            }
         }
     }
 }

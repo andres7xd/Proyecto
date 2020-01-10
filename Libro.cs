@@ -9,18 +9,18 @@ using System.Drawing;
 
 namespace Proyecto
 {
-    class Libro : FlowLayoutPanel
+    public class Libro : FlowLayoutPanel
     {
 
         public Label Nombre = new Label();
-        public Label LColor = new Label();
+        public static string NombreStatico;
         public Label Orden = new Label();
         public Label Categoria = new Label();
-
+        public List<Notas> notas = new List<Notas>();
         public Libro()
         {
 
-            
+
 
         }
 
@@ -29,46 +29,73 @@ namespace Proyecto
         {
 
             Nombre.Text = nombre;
-            LColor.Text = lcolor;
+
             Orden.Text = orden;
             Categoria.Text = categoria;
 
             Nombre.Width = 100;
             Nombre.Height = 15;
-            LColor.Width = 100;
-            LColor.Height = 15;
+
             Orden.Width = 100;
             Orden.Height = 15;
             Categoria.Width = 100;
             Categoria.Height = 15;
             Nombre.ForeColor = Color.Gold;
-            LColor.ForeColor = Color.Moccasin;
+
             Orden.ForeColor = Color.Khaki;
             Categoria.ForeColor = Color.LightBlue;
 
             this.Width = 100;
             this.Height = 70;
             this.Controls.Add(Nombre);
-            this.Controls.Add(LColor);
+
             this.Controls.Add(Orden);
             this.Controls.Add(Categoria);
-            this.BackColor = Color.Gray;
+
+            if (lcolor == "Rojo")
+            {
+                this.BackColor = Color.Red;
+            }
+            if (lcolor == "Gris")
+            {
+                this.BackColor = Color.Gray;
+            }
+            if (lcolor == "Azul")
+            {
+                this.BackColor = Color.Blue;
+            }
+            if (lcolor == "Verde")
+            {
+                this.BackColor = Color.Green;
+            }
+
 
             this.Click += new System.EventHandler(AccederLibro);
             Nombre.Click += new System.EventHandler(AccederLibro);
             Orden.Click += new System.EventHandler(AccederLibro);
             Categoria.Click += new System.EventHandler(AccederLibro);
-            LColor.Click += new System.EventHandler(AccederLibro);
+
 
         }
-       void AccederLibro(Object s,System.EventArgs h)
+        void AccederLibro(Object s, System.EventArgs h)
         {
+            NombreStatico = Nombre.Text;
             NotasForm notas = new NotasForm();
             notas.ShowDialog();
 
-            Console.WriteLine(Nombre.Text);
+            
         }
-        
+
+        public List<Notas> ListNotas
+        {
+            get
+            {
+                return notas;
+            }
+            set
+            {
+                notas = value;
+            }
+        }
     }
-   
 }

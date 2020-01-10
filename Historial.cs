@@ -7,19 +7,30 @@ using System.Windows.Forms;
 
 namespace Proyecto
 {
-    class Historial : FlowLayoutPanel
+    public class Historial
     {
 
 
-        public Label Usuario = new Label();
-        public Label FechaHora = new Label();
-        public Label accion = new Label();
+        public String Usuario;
+        public String FechaHora;
+        public String Accion ;
+        public String Lugar;
+        public String InformacionAdicional;
 
 
 
-        public  Historial()
-        {   
-            Usuario.Text = new 
+        public  Historial(String usuario,String accion, String lugar,String infoadicional)
+        {
+
+
+            FechaHora = DateTime.Now.ToString("ddd dd MMM yyyy h:mm:ss  tt");
+
+            Usuario = usuario;
+            Accion = accion;
+            Lugar = lugar;
+            InformacionAdicional = infoadicional;
+
+
 
         }
     }

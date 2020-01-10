@@ -14,7 +14,7 @@ namespace Proyecto
     {
 
         List<Notas> ListaNotas = new List<Notas>();
-        static List<Historial> ListaHistorialstatica = Principal.ListaHistorial;
+
 
 
         public NotasForm()
@@ -40,20 +40,6 @@ namespace Proyecto
             cmbFuente.Items.Add("Rive");
             cmbFuente.Items.Add("Calibri");
             textFechaCreacion.Text = DateTime.Now.Day.ToString()+ "/"+ DateTime.Now.Month.ToString()+ "/" + DateTime.Now.Year.ToString();
-            Console.WriteLine(Libro.NombreStatico);
-            for (int i = 0; i < Principal.ListaLibros.Count; i++)
-            {
-                if (Principal.ListaLibros[i].Nombre.Text == Libro.NombreStatico)
-                {
-                    ListaNotas= Principal.ListaLibros[i].ListNotas;
-                }
-            }
-
-
-            for (int i = 0; i < ListaNotas.Count; i++)
-            {
-                flowLayoutPanel1.Controls.Add(ListaNotas[i]);
-            }
 
         }
 
@@ -74,17 +60,8 @@ namespace Proyecto
                 flowLayoutPanel1.Controls.Add(ListaNotas[i]);
             }
 
-            for(int i = 0; i < Principal.ListaLibros.Count; i++)
-            {
-                if (Principal.ListaLibros[i].Nombre.Text == Libro.NombreStatico)
-                {
-                    Principal.ListaLibros[i].ListNotas = ListaNotas;
-                }
-            }
 
-            Historial historial = new Historial(Login.Usuario, "Agrega Nota", "Notas", "");
 
-            ListaHistorialstatica.Add(historial);
 
         }
 
@@ -145,9 +122,5 @@ namespace Proyecto
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

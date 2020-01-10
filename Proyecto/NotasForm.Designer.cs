@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotasForm));
             this.label1 = new System.Windows.Forms.Label();
             this.textTitulo = new System.Windows.Forms.TextBox();
             this.richTextBoxNota = new System.Windows.Forms.RichTextBox();
@@ -43,21 +42,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cmbFuente = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbColorLetra = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textFechaModificacion = new System.Windows.Forms.TextBox();
             this.textFechaCreacion = new System.Windows.Forms.TextBox();
-            this.cmbFuente = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(42, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 17);
@@ -95,7 +91,6 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(71, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
@@ -173,6 +168,15 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Fuente:";
             // 
+            // cmbFuente
+            // 
+            this.cmbFuente.FormattingEnabled = true;
+            this.cmbFuente.Location = new System.Drawing.Point(112, 308);
+            this.cmbFuente.Name = "cmbFuente";
+            this.cmbFuente.Size = new System.Drawing.Size(121, 24);
+            this.cmbFuente.TabIndex = 13;
+            this.cmbFuente.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -224,25 +228,6 @@
             this.textFechaCreacion.Size = new System.Drawing.Size(100, 22);
             this.textFechaCreacion.TabIndex = 18;
             // 
-            // cmbFuente
-            // 
-            this.cmbFuente.FormattingEnabled = true;
-            this.cmbFuente.Location = new System.Drawing.Point(112, 308);
-            this.cmbFuente.Name = "cmbFuente";
-            this.cmbFuente.Size = new System.Drawing.Size(121, 24);
-            this.cmbFuente.TabIndex = 13;
-            this.cmbFuente.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1108, 872);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // NotasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,11 +253,9 @@
             this.Controls.Add(this.richTextBoxNota);
             this.Controls.Add(this.textTitulo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "NotasForm";
             this.Text = "¿";
             this.Load += new System.EventHandler(this.Notas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,13 +277,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbFuente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbColorLetra;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textFechaModificacion;
         private System.Windows.Forms.TextBox textFechaCreacion;
-        private System.Windows.Forms.ComboBox cmbFuente;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

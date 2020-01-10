@@ -22,3 +22,16 @@ C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\Proyecto\obj\Debug\Proyecto.exe
 C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\Proyecto\obj\Debug\Proyecto.pdb
 C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\Proyecto\obj\Debug\Proyecto.NotasForm.resources
 C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\Proyecto\obj\Debug\Proyecto.HistorialForm.resources
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.AgregarLibro.resources
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.HistorialForm.resources
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.Login.resources
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.NotasForm.resources
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.Properties.Resources.resources
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.csproj.GenerateResource.cache
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.exe
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\bin\Debug\Proyecto.exe.config
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\bin\Debug\Proyecto.exe
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\bin\Debug\Proyecto.pdb
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.Principal.resources

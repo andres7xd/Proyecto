@@ -13,6 +13,8 @@ namespace Proyecto
     public partial class Form1 : Form
     {
         List<Libro> ListaLibros = new List<Libro>();
+        public static List<String> LIstaHistorial = new List<String>();
+
         public Form1()
         {
             
@@ -38,11 +40,14 @@ namespace Proyecto
             Libro lib = new Libro(AgregarLibro.Nombre,AgregarLibro.Color,AgregarLibro.Orden,AgregarLibro.Categoria);
 
             ListaLibros.Add(lib);
+
             for(int i =0;i < ListaLibros.Count;i++)
             {
                 flowLayoutPanel1.Controls.Add(ListaLibros[i]);
             }
-            
+
+            LIstaHistorial.Add("agrego el libro: " + AgregarLibro.Nombre);
+
 
           
         }
@@ -70,6 +75,17 @@ namespace Proyecto
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            for(int i=0;i<LIstaHistorial.Count;i++)
+            {
+
+                Console.WriteLine(LIstaHistorial[i]);
+
+            }
+           
         }
     }
 }

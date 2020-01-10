@@ -13,7 +13,8 @@ namespace Proyecto
 {
     public partial class Login : Form
     {
-        Form1 Form1 = new Form1();
+        static List<Historial> ListaHistorialstatica = Principal.ListaHistorial;
+        Principal Form1 = new Principal();
         
         List<RegistroUsuario> ListaUsuario = new List<RegistroUsuario>();
         public static string Usuario;
@@ -32,12 +33,16 @@ namespace Proyecto
                 if(ListaUsuario[i].Usuario == txtUsuario.Text && ListaUsuario[i].Contrasena == txtContraseña.Text)
                 {
                     Usuario = ListaUsuario[i].Usuario;
-                    Form1 n = new Form1();
+                    Principal n = new Principal();
                     this.Close();
                     Thread thread = new Thread(siguenteVista);
                     thread.SetApartmentState(ApartmentState.STA);
                     thread.Start();
-                    
+
+                    Historial historial = new Historial(Login.Usuario, "Ingreso al sistema", "Login", "");
+
+                    ListaHistorialstatica.Add(historial);
+
                 }
 
             }
@@ -45,7 +50,7 @@ namespace Proyecto
         }
         private void siguenteVista()
         {
-            Application.Run(new Form1());
+            Application.Run(new Principal());
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -58,7 +63,10 @@ namespace Proyecto
             if (txtUsuario.TextLength!=0 && txtContraseña.TextLength != 0)
             {
                 usuario = new RegistroUsuario(txtContraseña.Text, txtUsuario.Text);
+                
                 ListaUsuario.Add(usuario);
+                Historial historial = new Historial(txtUsuario.Text, "Usuario Registrado", "Login", "");
+                ListaHistorialstatica.Add(historial);
 
             }
 
@@ -71,6 +79,7 @@ namespace Proyecto
             {
 
                 LoginErrorProvider.SetError(txtContraseña, "Digite un nombre de contraseña");
+               
             }
 
 

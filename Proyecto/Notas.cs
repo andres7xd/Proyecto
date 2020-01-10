@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Proyecto
 {
-    public class Notas : FlowLayoutPanel
+    class Notas : FlowLayoutPanel
     {
         public  Label Titulo = new Label();
         public Label Nota = new Label();

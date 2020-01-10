@@ -1,10 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Proyecto.RegistroUsuario">
-    <Position X="4" Y="1" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAoA=</HashCode>
       <FileName>RegistroUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.Principal" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAAAASABACAAAQCAAAACAIAoAAQAAHAACABAAAI=</HashCode>
+      <FileName>Principal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.Program" Collapsed="true">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.Historial" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAIAAAAAAAQAAAAAAEAAAAAAQ=</HashCode>
+      <FileName>Historial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.AgregarLibro" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgKCCAADAgAACAgAACAABAAAgAAAAAgAAQAAA=</HashCode>
+      <FileName>AgregarLibro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.HistorialForm" Collapsed="true">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAAAAAACAAAAAAAICAAABCAQAgAEAgAAAAAAAQAAA=</HashCode>
+      <FileName>HistorialForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.Libro" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAgAAAAgAAAAAAAAAAAAAEAAAgQAAI=</HashCode>
+      <FileName>Libro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.Login" Collapsed="true">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAACAAAIAAAICgAQAWAQBAEEAAgIAGAABgAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.Notas" Collapsed="true">
+    <Position X="2" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACIAAAAAAgAAEAAQAAAAAAAAAAAAAAkACAABA=</HashCode>
+      <FileName>Notas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto.NotasForm" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAICAlABEEAICBAIATAqAIAAgAAGAgCABAAAA=</HashCode>
+      <FileName>NotasForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

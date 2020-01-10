@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarLibro));
             this.textNombre = new System.Windows.Forms.TextBox();
-            this.textCategoria = new System.Windows.Forms.TextBox();
             this.textOrden = new System.Windows.Forms.TextBox();
-            this.textColor = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cmbColor = new System.Windows.Forms.ComboBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.errorProviderAgregarLibro = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAgregarLibro)).BeginInit();
             this.SuspendLayout();
             // 
             // textNombre
@@ -47,26 +50,12 @@
             this.textNombre.Size = new System.Drawing.Size(100, 22);
             this.textNombre.TabIndex = 0;
             // 
-            // textCategoria
-            // 
-            this.textCategoria.Location = new System.Drawing.Point(149, 197);
-            this.textCategoria.Name = "textCategoria";
-            this.textCategoria.Size = new System.Drawing.Size(100, 22);
-            this.textCategoria.TabIndex = 1;
-            // 
             // textOrden
             // 
             this.textOrden.Location = new System.Drawing.Point(149, 160);
             this.textOrden.Name = "textOrden";
             this.textOrden.Size = new System.Drawing.Size(100, 22);
             this.textOrden.TabIndex = 2;
-            // 
-            // textColor
-            // 
-            this.textColor.Location = new System.Drawing.Point(149, 117);
-            this.textColor.Name = "textColor";
-            this.textColor.Size = new System.Drawing.Size(100, 22);
-            this.textColor.TabIndex = 3;
             // 
             // btnAgregar
             // 
@@ -118,23 +107,48 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Color";
             // 
+            // cmbColor
+            // 
+            this.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbColor.FormattingEnabled = true;
+            this.cmbColor.Location = new System.Drawing.Point(149, 117);
+            this.cmbColor.Name = "cmbColor";
+            this.cmbColor.Size = new System.Drawing.Size(100, 24);
+            this.cmbColor.TabIndex = 9;
+            this.cmbColor.SelectedIndexChanged += new System.EventHandler(this.cmbColor_SelectedIndexChanged);
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(149, 197);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(100, 24);
+            this.cmbCategoria.TabIndex = 10;
+            // 
+            // errorProviderAgregarLibro
+            // 
+            this.errorProviderAgregarLibro.ContainerControl = this;
+            // 
             // AgregarLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(365, 362);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.cmbColor);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.textColor);
             this.Controls.Add(this.textOrden);
-            this.Controls.Add(this.textCategoria);
             this.Controls.Add(this.textNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AgregarLibro";
             this.Text = "AgregarLibro";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAgregarLibro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,13 +157,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox textNombre;
-        private System.Windows.Forms.TextBox textCategoria;
         private System.Windows.Forms.TextBox textOrden;
-        private System.Windows.Forms.TextBox textColor;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbColor;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.ErrorProvider errorProviderAgregarLibro;
     }
 }
