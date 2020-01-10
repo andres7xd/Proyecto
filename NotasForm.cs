@@ -39,6 +39,12 @@ namespace Proyecto
             cmbFuente.Items.Add("Arial");
             cmbFuente.Items.Add("Rive");
             cmbFuente.Items.Add("Calibri");
+
+            cmbColorLetra.Items.Add("Rojo");
+            cmbColorLetra.Items.Add("Amarillo");
+            cmbColorLetra.Items.Add("Verde");
+            cmbColorLetra.Items.Add("Azul");
+
             textFechaCreacion.Text = DateTime.Now.Day.ToString()+ "/"+ DateTime.Now.Month.ToString()+ "/" + DateTime.Now.Year.ToString();
             Console.WriteLine(Libro.NombreStatico);
             for (int i = 0; i < Principal.ListaLibros.Count; i++)
@@ -146,6 +152,11 @@ namespace Proyecto
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbColorLetra_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

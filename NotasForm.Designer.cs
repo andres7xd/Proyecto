@@ -189,6 +189,7 @@
             this.cmbColorLetra.Name = "cmbColorLetra";
             this.cmbColorLetra.Size = new System.Drawing.Size(121, 24);
             this.cmbColorLetra.TabIndex = 15;
+            this.cmbColorLetra.SelectedIndexChanged += new System.EventHandler(this.cmbColorLetra_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -270,7 +271,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "NotasForm";
-            this.Text = "¿";
+            this.Text = "Notas";
             this.Load += new System.EventHandler(this.Notas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
