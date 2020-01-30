@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UNA.Conexion;
 
 namespace Proyecto
 {
@@ -14,12 +16,17 @@ namespace Proyecto
     {
         public static List<Libro> ListaLibros = new List<Libro>();
         public static List<Historial> ListaHistorial = new List<Historial>();
+        public static string idusuario;
+        public int idusuarioactual ;
+        
 
         public Principal()
         {
             
             InitializeComponent();
-            LblUsuario.Text = Login.Usuario;
+            //idusuario = Login.idUsuario;
+            idusuarioactual = AgregarLibro.idUsuarioactual;
+            btnConfiguracion.Text = Login.Usuario;
 
         }
 
@@ -32,6 +39,10 @@ namespace Proyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            
+
+           
 
             AgregarLibro agregarLibro = new AgregarLibro();
             agregarLibro.ShowDialog();
@@ -103,6 +114,84 @@ namespace Proyecto
             {
 
                 ListaLibros = value;
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            MantenimientoUsuario mantenimientoUsuario = new MantenimientoUsuario();
+            mantenimientoUsuario.ShowDialog();
+
+        }
+
+        private void cargarlibros(object sender, EventArgs e)
+        {
+            MySqlAccess mySqlBD = new MySqlAccess();
+            mySqlBD.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["mySqlStringConnection"].ConnectionString;
+
+            mySqlBD.OpenConnection();
+            DataTable dataTable = new DataTable();
+            
+            dataTable = mySqlBD.QuerySQL("Select * From libros where usuarios_idusuario ="+ Login.idUsuario + "");
+            List<Libro> result = new List<Libro>();
+            for(int x = 0; x<dataTable.Rows.Count; x++)
+            {
+                Libro libro = new Libro(dataTable.Rows[x]["nombre"].ToString(), dataTable.Rows[x]["color"].ToString(), dataTable.Rows[x]["orden"].ToString(), dataTable.Rows[x]["categoria"].ToString());
+                //libro.idlibro = Convert.ToInt32(dataTable.Rows[x]["idlibro"].ToString());
+                result.Add(libro);
+            }
+            
+            ListaLibros = result;
+
+            for (int i = 0; i < ListaLibros.Count; i++)
+            {
+                flowLayoutPanel1.Controls.Add(ListaLibros[i]);
+            }
+
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(siguenteVista);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void siguenteVista()
+        {
+            Application.Run(new Login());
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            MySqlAccess mySqlBD = new MySqlAccess();
+            mySqlBD.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["mySqlStringConnection"].ConnectionString;
+
+            mySqlBD.OpenConnection();
+            DataTable dataTable = new DataTable();
+
+            dataTable = mySqlBD.QuerySQL("Select * From libros where usuarios_idusuario =" + Login.idUsuario + "");
+            List<Libro> result = new List<Libro>();
+            for (int x = 0; x < dataTable.Rows.Count; x++)
+            {
+                Libro libro = new Libro(dataTable.Rows[x]["nombre"].ToString(), dataTable.Rows[x]["color"].ToString(), dataTable.Rows[x]["orden"].ToString(), dataTable.Rows[x]["categoria"].ToString());
+                //libro.idlibro = Convert.ToInt32(dataTable.Rows[x]["idlibro"].ToString());
+                result.Add(libro);
+            }
+
+            ListaLibros = result;
+
+            for (int i = 0; i < ListaLibros.Count; i++)
+            {
+                flowLayoutPanel1.Controls.Add(ListaLibros[i]);
             }
         }
     }

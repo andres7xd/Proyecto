@@ -82,7 +82,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(205, 259);
+            this.btnCancelar.Location = new System.Drawing.Point(277, 259);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -92,11 +92,11 @@
             // 
             // BtnCargar
             // 
-            this.BtnCargar.Location = new System.Drawing.Point(103, 259);
+            this.BtnCargar.Location = new System.Drawing.Point(165, 259);
             this.BtnCargar.Name = "BtnCargar";
-            this.BtnCargar.Size = new System.Drawing.Size(75, 23);
+            this.BtnCargar.Size = new System.Drawing.Size(103, 23);
             this.BtnCargar.TabIndex = 6;
-            this.BtnCargar.Text = "Cargar";
+            this.BtnCargar.Text = "Iniciar sesión";
             this.BtnCargar.UseVisualStyleBackColor = true;
             this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
             // 
@@ -142,6 +142,7 @@
             this.Controls.Add(this.LblContraseña);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).EndInit();
             this.ResumeLayout(false);

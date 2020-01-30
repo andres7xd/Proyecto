@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UNA.Conexion;
 
 namespace Proyecto
 {
     public partial class AgregarLibro : Form
     {
-        public static String Nombre, Color, Orden, Categoria;
+        public static String Nombre, Color,Orden, Categoria;
+        int Ordenint;
+        public static int idUsuarioactual;
+        String Nusuario = Login.Usuario; 
 
         private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -50,7 +54,35 @@ namespace Proyecto
                 Orden = textOrden.Text;
                 Color = cmbColor.Text;
                 Categoria = cmbCategoria.Text;
+                Ordenint = Convert.ToInt32(Orden);
+
+                MySqlAccess mySql = new MySqlAccess();
+                String cn = "Server=localhost;Database=Database;Uid=root;Pwd=1234;";
+                mySql.ConnectionString = cn;
+                mySql.OpenConnection();
+                mySql.BeginTransaction();
+                
+                String idusuario = String.Format("SELECT idusuario from usuarios where usuario ='{0}'", Nusuario);
+                mySql.QuerySQL(idusuario);
+                DataTable dataTable = new DataTable();
+               
+                dataTable = mySql.QuerySQL(idusuario);
+                int idActual = Convert.ToInt32(dataTable.Rows[0][0].ToString());
+                idUsuarioactual = idActual;
+
+                string query = string.Format("INSERT INTO libros(idlibros,nombre, categoria,color,orden,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}')",
+                 "0", textNombre.Text, cmbCategoria.Text,cmbColor.Text,Ordenint,idActual);
+
+                //string query = string.Format("INSERT INTO libros('nombre', 'categoria', 'color', 'orden', 'usuarios_idusuario') values('" + textNombre.Text + "','" + (String)cmbCategoria.SelectedItem + "', '" + (String)cmbColor.SelectedItem + "'," + Ordenint + "," + idActual);
+
+                mySql.EjectSQL(query);
+
+                mySql.CommitTransaction();
+                mySql.CloseConnection();
+
                 this.Close();
+
+
             }
 
             if (textNombre.TextLength == 0)
