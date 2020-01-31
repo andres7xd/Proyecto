@@ -89,6 +89,12 @@
     <Compile Include="HistorialForm.Designer.cs">
       <DependentUpon>HistorialForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenimientoNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoNotas.Designer.cs">
+      <DependentUpon>MantenimientoNotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoLibros.resx">
       <DependentUpon>MantenimientoLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoNotas.resx">
+      <DependentUpon>MantenimientoNotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoUsuario.resx">
       <DependentUpon>MantenimientoUsuario.cs</DependentUpon>

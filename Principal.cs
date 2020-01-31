@@ -24,9 +24,11 @@ namespace Proyecto
         {
             
             InitializeComponent();
-            //idusuario = Login.idUsuario;
+           
             idusuarioactual = AgregarLibro.idUsuarioactual;
             btnConfiguracion.Text = Login.Usuario;
+
+           
 
         }
 
@@ -142,7 +144,7 @@ namespace Proyecto
             for(int x = 0; x<dataTable.Rows.Count; x++)
             {
                 Libro libro = new Libro(dataTable.Rows[x]["nombre"].ToString(), dataTable.Rows[x]["color"].ToString(), dataTable.Rows[x]["orden"].ToString(), dataTable.Rows[x]["categoria"].ToString());
-                //libro.idlibro = Convert.ToInt32(dataTable.Rows[x]["idlibro"].ToString());
+              
                 result.Add(libro);
             }
             
@@ -183,7 +185,7 @@ namespace Proyecto
             for (int x = 0; x < dataTable.Rows.Count; x++)
             {
                 Libro libro = new Libro(dataTable.Rows[x]["nombre"].ToString(), dataTable.Rows[x]["color"].ToString(), dataTable.Rows[x]["orden"].ToString(), dataTable.Rows[x]["categoria"].ToString());
-                //libro.idlibro = Convert.ToInt32(dataTable.Rows[x]["idlibro"].ToString());
+               
                 result.Add(libro);
             }
 

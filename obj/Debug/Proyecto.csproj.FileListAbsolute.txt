@@ -86,3 +86,4 @@ C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\bin\Debug\MySql.Data.xml
 C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.MantenimientoLibros.resources
 C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.MantenimientoUsuario.resources
 C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.csproj.CopyComplete
+C:\Users\andre\Desktop\ProyectoNotebook\Proyecto\obj\Debug\Proyecto.MantenimientoNotas.resources

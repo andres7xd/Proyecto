@@ -115,37 +115,12 @@ namespace Proyecto
               
             }
 
-            
-            //dataGridView1.DataSource = mySql.QuerySQL("select * from clientes");
-           
-
-
-            //MySqlBD mySqlBD = new MySqlBD();
-            //mySqlBD.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-            //mySqlBD.OpenConnection();
-            //mySqlBD.BeginTransaction();
-
-            //"INSERT INTO clientes(nombre,telefono,correo)VALUES('rube','71363520','ruben01@gmail.com')";
-
-            //mySqlBD.CommitTransaction();
-            //mySqlBD.CloseConnection();
+             
+        
            
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

@@ -134,6 +134,8 @@ namespace Proyecto
         }
         void AccederLibro(Object s, System.EventArgs h)
         {
+            idLibroEstatico = idLibro;
+
             NombreStatico = Nombre.Text;
             NotasForm notas = new NotasForm();
             notas.ShowDialog();
@@ -168,11 +170,13 @@ namespace Proyecto
             mySql.OpenConnection();
             mySql.BeginTransaction();
             DataTable dataTable = new DataTable();
-            string query = string.Format("DELETE FROM libros WHERE(idlibros = '"+idLibroEstatico+"') and(usuarios_idusuario= '"+Login.idUsuario+"')");
-            
+            string query2 = string.Format("DELETE FROM libros WHERE(idlibros = '"+idLibroEstatico+"') and(usuarios_idusuario= '"+Login.idUsuario+"')");
+            string query = string.Format("DELETE FROM notas WHERE(libros_idlibros= '" + idLibroEstatico + "')");
 
 
-           mySql.EjectSQL(query);
+
+            mySql.EjectSQL(query);
+            mySql.EjectSQL(query2);
 
             mySql.CommitTransaction();
             mySql.CloseConnection();
