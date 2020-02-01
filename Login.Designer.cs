@@ -39,6 +39,7 @@
             this.btnregistrarse = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoginErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -70,11 +71,11 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 22);
             this.txtUsuario.TabIndex = 3;
-            
             // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(180, 183);
+            this.txtContraseña.MaxLength = 8;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(100, 22);
             this.txtContraseña.TabIndex = 4;
@@ -104,7 +105,7 @@
             // 
             this.btnregistrarse.Location = new System.Drawing.Point(165, 354);
             this.btnregistrarse.Name = "btnregistrarse";
-            this.btnregistrarse.Size = new System.Drawing.Size(75, 23);
+            this.btnregistrarse.Size = new System.Drawing.Size(115, 23);
             this.btnregistrarse.TabIndex = 7;
             this.btnregistrarse.Text = "Registrarse";
             this.btnregistrarse.UseVisualStyleBackColor = true;
@@ -119,11 +120,21 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-           
             // 
             // LoginErrorProvider
             // 
             this.LoginErrorProvider.ContainerControl = this;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(177, 165);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Maximo 8 caracteres";
             // 
             // Login
             // 
@@ -132,6 +143,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnregistrarse);
             this.Controls.Add(this.BtnCargar);
@@ -142,7 +154,6 @@
             this.Controls.Add(this.LblContraseña);
             this.Name = "Login";
             this.Text = "Login";
-          
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoginErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -160,5 +171,6 @@
         private System.Windows.Forms.Button btnregistrarse;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider LoginErrorProvider;
+        private System.Windows.Forms.Label label1;
     }
 }

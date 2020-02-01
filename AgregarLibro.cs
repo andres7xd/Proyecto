@@ -74,6 +74,12 @@ namespace Proyecto
                  "0", textNombre.Text, cmbCategoria.Text,cmbColor.Text,Ordenint,idActual);
 
                 //string query = string.Format("INSERT INTO libros('nombre', 'categoria', 'color', 'orden', 'usuarios_idusuario') values('" + textNombre.Text + "','" + (String)cmbCategoria.SelectedItem + "', '" + (String)cmbColor.SelectedItem + "'," + Ordenint + "," + idActual);
+               
+                String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+                string query2 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                 "0", FechaHistorial, Login.Usuario, "Se agega un libro", "Agregar Libros", "Libro agregado correctamente", Login.idUsuario);
+
+                mySql.EjectSQL(query2);
 
                 mySql.EjectSQL(query);
 

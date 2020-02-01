@@ -82,24 +82,23 @@ namespace Proyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(idusuario);
-            Console.WriteLine(idlibro);
-            Notas not = new Notas(textTitulo.Text, cmbPrivacidad.Text,cmbCategoria.Text,cmbColor.Text,textFechaCreacion.Text,textFechaModificacion.Text, richTextBoxNota.Text);
+           
+            //Notas not = new Notas(textTitulo.Text, cmbPrivacidad.Text,cmbCategoria.Text,cmbColor.Text,textFechaCreacion.Text,textFechaModificacion.Text, richTextBoxNota.Text);
 
-            ListaNotas.Add(not);
+            //ListaNotas.Add(not);
 
-            for (int i = 0; i < ListaNotas.Count; i++)
-            {
-                flowLayoutPanel1.Controls.Add(ListaNotas[i]);
-            }
+            //for (int i = 0; i < ListaNotas.Count; i++)
+            //{
+            //    flowLayoutPanel1.Controls.Add(ListaNotas[i]);
+            //}
 
-            for(int i = 0; i < Principal.ListaLibros.Count; i++)
-            {
-                if (Principal.ListaLibros[i].Nombre.Text == Libro.NombreStatico)
-                {
-                    Principal.ListaLibros[i].ListNotas = ListaNotas;
-                }
-            }
+            //for(int i = 0; i < Principal.ListaLibros.Count; i++)
+            //{
+            //    if (Principal.ListaLibros[i].Nombre.Text == Libro.NombreStatico)
+            //    {
+            //        Principal.ListaLibros[i].ListNotas = ListaNotas;
+            //    }
+            //}
 
             MySqlAccess mySql = new MySqlAccess();
             String cn = "Server=localhost;Database=Database;Uid=root;Pwd=1234;";
@@ -110,11 +109,14 @@ namespace Proyecto
 
 
             string query = string.Format("INSERT INTO notas(idnotas,titulo, privacidad,categoria,notascol,fecha_creacion,fecha_modificacion,texto_notas,libros_idlibros,libros_usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
-             "0", textTitulo.Text, cmbPrivacidad.Text, cmbCategoria.Text, cmbColor, textFechaCreacion.Text, textFechaModificacion.Text, richTextBoxNota.Text, idlibro, idusuario);
+             "0", textTitulo.Text, cmbPrivacidad.Text, cmbCategoria.Text, cmbColor.Text, textFechaCreacion.Text, textFechaModificacion.Text, richTextBoxNota.Text, idlibro, idusuario);
 
-           
+            String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+            string query3 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+             "0", FechaHistorial, Login.Usuario, "Nota Agregada", "Mantenimiento notas", textTitulo.Text, Login.idUsuario);
 
             mySql.EjectSQL(query);
+            mySql.EjectSQL(query3);
 
             mySql.CommitTransaction();
             mySql.CloseConnection();
@@ -173,6 +175,26 @@ namespace Proyecto
             for (int i = 0; i < ListaNotas.Count; i++)
             {
                 flowLayoutPanel1.Controls.Add(ListaNotas[i]);
+            }
+        }
+
+        private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
+
+        //    fontDialog1.Font = textBox1.Font;
+           // fontDialog1.Color = textBox1.ForeColor;
+
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                textTitulo.Font = fontDialog1.Font;
+             //   textBox1.Font = fontDialog1.Font;
+               // textBox1.ForeColor = fontDialog1.Color;
             }
         }
     }

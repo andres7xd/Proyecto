@@ -158,6 +158,8 @@ namespace Proyecto
             mantenimientoLibros.ShowDialog();
 
 
+
+
         }
 
         void Eliminarlibro(Object s, System.EventArgs h)
@@ -173,10 +175,13 @@ namespace Proyecto
             string query2 = string.Format("DELETE FROM libros WHERE(idlibros = '"+idLibroEstatico+"') and(usuarios_idusuario= '"+Login.idUsuario+"')");
             string query = string.Format("DELETE FROM notas WHERE(libros_idlibros= '" + idLibroEstatico + "')");
 
-
+            String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+            string query3 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+             "0", FechaHistorial, Login.Usuario, "Libro Eliminado", "Mantenimiento Libros", Libro.NombreStatico, Login.idUsuario);
 
             mySql.EjectSQL(query);
             mySql.EjectSQL(query2);
+            mySql.EjectSQL(query3);
 
             mySql.CommitTransaction();
             mySql.CloseConnection();

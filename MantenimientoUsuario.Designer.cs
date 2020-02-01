@@ -73,7 +73,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(100, 22);
             this.txtContrasena.TabIndex = 3;
-            this.txtContrasena.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
+           
             // 
             // button1
             // 
@@ -121,7 +121,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MantenimientoUsuario";
             this.Text = "MantenimientoUsuario";
-            this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
+          
             this.ResumeLayout(false);
             this.PerformLayout();
 

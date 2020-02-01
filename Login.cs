@@ -22,6 +22,7 @@ namespace Proyecto
         public static string Usuario;
         public static string Contrasena;
         public static int idUsuario;
+        public static int idUsuarioRegistrado;
 
 
         public Login()
@@ -38,8 +39,7 @@ namespace Proyecto
             mySql.BeginTransaction();
             DataTable dataTable = new DataTable();
             String id = String.Format("SELECT idusuario from usuarios where usuario ='{0}'and contraseña= '{1}'", txtUsuario.Text, txtContraseña.Text);
-            //dataTable = mySql.QuerySQL("'SELECT idusuario from usuarios where usuario = '" + txtUsuario.Text + "' and contraseña='" + txtContraseña.Text + "'");
-            //idUsuario = string.Format("select idusuario from usuarios where usuario = "+txtUsuario.Text);
+  
             dataTable = mySql.QuerySQL(id);
             if (dataTable.Rows.Count > 0)
             {
@@ -49,6 +49,10 @@ namespace Proyecto
                 Usuario = txtUsuario.Text;
                 Contrasena = txtContraseña.Text;
 
+
+
+                String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+                
                 Principal n = new Principal();
                 this.Close();
                 Thread thread = new Thread(siguenteVista);
@@ -58,6 +62,10 @@ namespace Proyecto
                 Historial historial = new Historial(Login.Usuario, "Ingreso al sistema", "Login", "");
 
                 ListaHistorialstatica.Add(historial);
+
+                string query = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                 "0",FechaHistorial, txtUsuario.Text, "Ingreso al sistema", "Login","En ruta a ventana principal",idUsuario);
+                mySql.EjectSQL(query);
 
                 dataTable.Clear();
             }
@@ -98,6 +106,20 @@ namespace Proyecto
                 string query = string.Format("INSERT INTO usuarios(idusuario,usuario, contraseña)VALUES('{0}','{1}','{2}')",
                  "0", txtUsuario.Text, txtContraseña.Text);
                 mySql.EjectSQL(query);
+
+                DataTable dataTable2 = new DataTable();
+                String idusuarioregistrado = String.Format("SELECT idusuario from usuarios where usuario ='{0}'and contraseña= '{1}'", txtUsuario.Text, txtContraseña.Text);
+                dataTable2 = mySql.QuerySQL(idusuarioregistrado);
+                int idActual = Convert.ToInt32(dataTable2.Rows[0][0].ToString());
+                idUsuarioRegistrado = idActual;
+
+                Console.WriteLine(idUsuarioRegistrado);
+
+                String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+                string query2 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                 "0", FechaHistorial, txtUsuario.Text, "Se registro un usuario", "Login", "Usuario agregado correctamente", idUsuarioRegistrado);
+              
+                mySql.EjectSQL(query2);
                 mySql.CommitTransaction();
                 mySql.CloseConnection();
 

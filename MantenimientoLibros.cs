@@ -52,7 +52,11 @@ namespace Proyecto
             DataTable dataTable = new DataTable();
             string query = string.Format("UPDATE libros SET nombre = '" + textNombre.Text + "', categoria='"+cmbCategoria.Text+ "', color='" + cmbColor.Text + "', orden='" + textOrden.Text + "' WHERE (idlibros =" + Libro.idLibroEstatico + ")");
 
-
+            String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+            string query2 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+             "0", FechaHistorial, Login.Usuario, "Libro Editado", "Mantenimiento Libros", Libro.NombreStatico, Login.idUsuario);
+            
+            mySql.EjectSQL(query2);
             mySql.EjectSQL(query);
 
             mySql.CommitTransaction();

@@ -32,12 +32,7 @@ namespace Proyecto
 
         }
 
-        private void LblUsuario_Click(object sender, EventArgs e)
-        {
-           
-
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -67,30 +62,9 @@ namespace Proyecto
           
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+       
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
@@ -119,10 +93,7 @@ namespace Proyecto
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
@@ -186,6 +157,37 @@ namespace Proyecto
             {
                 Libro libro = new Libro(dataTable.Rows[x]["nombre"].ToString(), dataTable.Rows[x]["color"].ToString(), dataTable.Rows[x]["orden"].ToString(), dataTable.Rows[x]["categoria"].ToString());
                
+                result.Add(libro);
+            }
+
+            ListaLibros = result;
+
+            for (int i = 0; i < ListaLibros.Count; i++)
+            {
+                flowLayoutPanel1.Controls.Add(ListaLibros[i]);
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            MySqlAccess mySqlBD = new MySqlAccess();
+            mySqlBD.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["mySqlStringConnection"].ConnectionString;
+
+            mySqlBD.OpenConnection();
+            DataTable dataTable = new DataTable();
+            string busqL=String.Format( "Select *From libros where usuarios_idusuario='{0}'and nombre  like '%{1}%'",Login.idUsuario, txtNombreLibro.Text);
+            dataTable = mySqlBD.QuerySQL(busqL);
+            List<Libro> result = new List<Libro>();
+            for (int x = 0; x < dataTable.Rows.Count; x++)
+            {
+                Libro libro = new Libro(dataTable.Rows[x]["nombre"].ToString(), dataTable.Rows[x]["color"].ToString(), dataTable.Rows[x]["orden"].ToString(), dataTable.Rows[x]["categoria"].ToString());
+
                 result.Add(libro);
             }
 

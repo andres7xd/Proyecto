@@ -18,10 +18,8 @@ namespace Proyecto
             InitializeComponent();
         }
 
-        private void MantenimientoNotas_Load(object sender, EventArgs e)
-        {
-
-        }
+      
+        
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
@@ -39,6 +37,11 @@ namespace Proyecto
             mySql.CommitTransaction();
             mySql.CloseConnection();
             this.Close();
+
+        }
+
+        private void MantenimientoNotas_Load(object sender, EventArgs e)
+        {
 
         }
     }

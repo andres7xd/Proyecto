@@ -48,7 +48,7 @@ namespace Proyecto
             Nota.Height = 15;
             
             Editar.Width = 100;
-            Editar.Height = 15;
+            Editar.Height = 25;
 
             this.Controls.Add(Titulo);
             this.Controls.Add(Nota);
@@ -110,6 +110,12 @@ namespace Proyecto
             int idActual = Convert.ToInt32(dataTable.Rows[0][0].ToString());
             idNotaEstatica = idActual;
 
+            String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+            string query3 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+             "0", FechaHistorial, Login.Usuario, "Nota Edittada", "Mantenimiento notas", titulounico, Login.idUsuario);
+
+            mySql.EjectSQL(query3);
+
             mySql.CommitTransaction();
             mySql.CloseConnection();
 
@@ -136,6 +142,12 @@ namespace Proyecto
 
 
             mySql.EjectSQL(query);
+
+            String FechaHistorial = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+            string query3 = string.Format("INSERT INTO transacciones(idhistorial,fecha,usuario, accion,objeto,info_adicional,usuarios_idusuario)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+             "0", FechaHistorial, Login.Usuario, "Nota Eliminada", "Mantenimiento notas", titulounico, Login.idUsuario);
+
+            mySql.EjectSQL(query3);
 
             mySql.CommitTransaction();
             mySql.CloseConnection();

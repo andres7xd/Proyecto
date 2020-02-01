@@ -18,7 +18,7 @@ namespace Proyecto
             InitializeComponent();
             txtUsuario.Text = Login.Usuario;
             txtContrasena.Text = Login.Contrasena;
-            //txtContrasena.Text = Login.con
+          
             
         }
 
@@ -50,19 +50,13 @@ namespace Proyecto
 
         }
 
-        private void MantenimientoUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void txtContrasena_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
